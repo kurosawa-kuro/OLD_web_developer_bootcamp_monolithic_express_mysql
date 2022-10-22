@@ -2,6 +2,8 @@ const express = require('express');
 const path = require('path');
 const methodOverride = require('method-override');
 
+const { Campground } = require("../db/models")
+
 const app = express();
 
 app.set('view engine', 'ejs');
@@ -14,10 +16,11 @@ app.get('/', (req, res) => {
     res.render('top');
 });
 
-// app.get('/campgrounds', async (req, res) => {
-//     const campgrounds = await Campground.find({});
-//     res.render('campgrounds/index', { campgrounds });
-// });
+app.get('/campgrounds', async (req, res) => {
+    const campgrounds = await Campground.findAll({ raw: true });
+    console.log({ campgrounds })
+    res.render('campgrounds/index', { campgrounds });
+});
 
 // app.get('/campgrounds/new', (req, res) => {
 //     res.render('campgrounds/new');
