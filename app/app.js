@@ -1,17 +1,6 @@
 const express = require('express');
 const path = require('path');
 const methodOverride = require('method-override');
-// const Campground = require('./models/campground');
-
-// mongoose.connect('mongodb://localhost:27017/yelp-camp',
-//     { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true })
-//     .then(() => {
-//         console.log('MongoDBコネクションOK！！');
-//     })
-//     .catch(err => {
-//         console.log('MongoDBコネクションエラー！！！');
-//         console.log(err);
-//     });
 
 const app = express();
 
@@ -22,7 +11,6 @@ app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride('_method'));
 
 app.get('/', (req, res) => {
-    // res.send("Top")
     res.render('top');
 });
 
