@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon app/server.js",
+    "dev": "nodemon app/app.js",
     "initDB": "cd db && sequelize db:drop && sequelize db:create && sequelize db:migrate && sequelize db:seed:all"
   },
   "repository": {
@@ -34,6 +34,7 @@
     "colors": "^1.4.0",
     "concurrently": "^7.4.0",
     "dotenv": "^16.0.3",
+    "ejs": "^3.1.8",
     "express": "^4.18.2",
     "express-async-handler": "^1.2.0",
     "express-handlebars": "^6.0.6",
