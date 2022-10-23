@@ -18,32 +18,35 @@ app.get('/', (req, res) => {
 
 app.get('/campgrounds', async (req, res) => {
     const campgrounds = await Campground.findAll({ raw: true });
+
     res.render('campgrounds/index', { campgrounds });
 });
 
 app.get('/campgrounds/new', (req, res) => {
+
     res.render('campgrounds/new');
 });
 
 app.get('/campgrounds/:id', async (req, res) => {
     const campground = await Campground.findByPk(req.params.id);
+
     res.render('campgrounds/show', { campground });
 });
 
 app.post('/campgrounds', async (req, res) => {
     const campground = new Campground(req.body.campground);
     await campground.save();
+
     res.redirect(`/campgrounds/${campground.id}`);
 });
 
 app.get('/campgrounds/:id/edit', async (req, res) => {
     const campground = await Campground.findByPk(req.params.id);
+
     res.render('campgrounds/edit', { campground });
 });
 
 app.put('/campgrounds/:id', async (req, res) => {
-
-    console.log("app.put('/campgrounds/:id'")
     const { id } = req.params;
     await Campground.update(req.body, {
         where: { id }
@@ -57,6 +60,7 @@ app.delete('/campgrounds/:id', async (req, res) => {
     await Campground.destroy({
         where: { id }
     });
+
     res.redirect('/campgrounds');
 });
 
