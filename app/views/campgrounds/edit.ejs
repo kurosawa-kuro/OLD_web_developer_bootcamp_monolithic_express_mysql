@@ -10,14 +10,14 @@
 
 <body>
     <h1>キャンプ場の編集</h1>
-    <form action="/campgrounds/<%= campground._id %>?_method=PUT" method="POST">
+    <form action="/campgrounds/<%= campground.id %>?_method=PUT" method="POST">
         <div>
             <label for="title">タイトル</label>
-            <input type="text" name="campground[title]" id="title" value="<%= campground.title %>">
+            <input type="text" name="title" id="title" value="<%= campground.title %>">
         </div>
         <div>
             <label for="location">場所</label>
-            <input type="text" name="campground[location]" id="location" value="<%= campground.location %>">
+            <input type="text" name="location" id="location" value="<%= campground.location %>">
         </div>
         <button>更新する</button>
     </form>
