@@ -18,7 +18,6 @@ app.get('/', (req, res) => {
 
 app.get('/campgrounds', async (req, res) => {
     const campgrounds = await Campground.findAll({ raw: true });
-    console.log({ campgrounds })
     res.render('campgrounds/index', { campgrounds });
 });
 
