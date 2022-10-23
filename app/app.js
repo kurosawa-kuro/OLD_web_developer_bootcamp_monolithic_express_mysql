@@ -26,10 +26,10 @@ app.get('/campgrounds/new', (req, res) => {
     res.render('campgrounds/new');
 });
 
-// app.get('/campgrounds/:id', async (req, res) => {
-//     const campground = await Campground.findById(req.params.id);
-//     res.render('campgrounds/show', { campground });
-// });
+app.get('/campgrounds/:id', async (req, res) => {
+    const campground = await Campground.findById(req.params.id);
+    res.render('campgrounds/show', { campground });
+});
 
 // app.post('/campgrounds', async (req, res) => {
 //     const campground = new Campground(req.body.campground);
